@@ -1,0 +1,11 @@
+{
+  "name": "pokemonjs-edition",
+  "version": "1.0.0",
+  "description": "Open a terminal and write the following:",
+  "main": "init.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
