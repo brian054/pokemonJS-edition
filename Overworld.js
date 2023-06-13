@@ -8,6 +8,7 @@ class Overworld {
 
     // Function to start game loop
     startGameLoop() {
+        // ToDo: Timestep stuff so app doesn't run differently on different machines
         const step = () => {
 
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -18,6 +19,10 @@ class Overworld {
             // Draw Game Objects
             Object.values(this.map.gameObjects).forEach(object => {
                 //object.x += 0.02;
+                //object.x += 1;
+                object.update({
+
+                });
                 object.sprite.draw(this.ctx);
             })
 
@@ -32,7 +37,7 @@ class Overworld {
     }
 
     init() {
-        this.map = new OverworldMap(window.OverworldMaps.Kitchen);
+        this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
         this.startGameLoop();
 
 
