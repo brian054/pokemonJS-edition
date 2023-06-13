@@ -21,7 +21,7 @@ class Overworld {
                 //object.x += 0.02;
                 //object.x += 1;
                 object.update({
-
+                    arrow: this.directionInput.direction
                 });
                 object.sprite.draw(this.ctx);
             })
@@ -38,6 +38,11 @@ class Overworld {
 
     init() {
         this.map = new OverworldMap(window.OverworldMaps.DemoRoom);
+
+        this.directionInput = new DirectionInput(); // 'static' property here
+        this.directionInput.init();
+        this.directionInput.direction; 
+
         this.startGameLoop();
 
 

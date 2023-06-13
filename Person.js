@@ -1,7 +1,9 @@
 class Person extends GameObject {
     constructor(config) {
         super(config); // runs GameObject constructor
-        this.movingProgressRemaining = 16; // can't stop characters in the middle of a tile
+        this.movingProgressRemaining = 0; // can't stop characters in the middle of a tile
+
+        this.isPlayerControlled = config.isPlayerControlled || false;
 
         this.directionUpdate = {
             "up": ["y", -1],
@@ -13,6 +15,11 @@ class Person extends GameObject {
 
     update(state) {
         this.updatePosition();
+
+        if (this.isPlayerControlled && this.movingProgressRemaining === 0 && state.arrow) {
+            this.direction = state.arrow;
+            this.movingProgressRemaining = 16;
+        }
     }
 
     updatePosition() {
