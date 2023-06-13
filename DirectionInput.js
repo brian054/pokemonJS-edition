@@ -24,16 +24,16 @@ class DirectionInput {
         document.addEventListener("keydown", e => {
             const dir = this.map[e.code];
             if (dir && this.heldDirections.indexOf(dir) === -1) {
-                this.heldDirections.unshift(dir);
+                this.heldDirections.unshift(dir); // insert at start 
                 console.log(this.heldDirections);
             }
         });
-        // if key lifted up was in array, take it out
+        // if the key lifted up was in array, take it out
         document.addEventListener("keyup", e=> {
             const dir = this.map[e.code];
             const index = this.heldDirections.indexOf(dir);
             if (index > -1) { // in array
-                this.heldDirections.splice(index, 1);
+                this.heldDirections.splice(index, 1); // remove 
                 console.log(this.heldDirections);
             }
         })

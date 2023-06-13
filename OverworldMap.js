@@ -49,7 +49,7 @@ window.OverworldMaps = {
                 y: utils.withGrid(12),
                 src: "/images/characters/people/npc1.png"
             }),
-            npc2: new GameObject({ // 10 x 12 works wtf
+            npc2: new GameObject({ 
                 x: utils.withGrid(6),
                 y: utils.withGrid(9),
                 src: "/images/characters/people/npc3.png"
