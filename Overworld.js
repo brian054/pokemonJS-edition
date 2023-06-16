@@ -10,24 +10,29 @@ class Overworld {
     startGameLoop() {
         // ToDo: Timestep stuff so app doesn't run differently on different machines
         const step = () => {
-
+            // Clear Canvas
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+            // Camera Person
+            const cameraPerson = this.map.gameObjects.hero;
+
+            // Update all objects (could be performance issue)
+            Object.values(this.map.gameObjects).forEach(object => {
+                object.update({
+                    arrow: this.directionInput.direction
+                })
+            })
+
             // Draw Lower Layer
-            this.map.drawLowerImage(this.ctx);
+            this.map.drawLowerImage(this.ctx, cameraPerson);
 
             // Draw Game Objects
             Object.values(this.map.gameObjects).forEach(object => {
-                //object.x += 0.02;
-                //object.x += 1;
-                object.update({
-                    arrow: this.directionInput.direction
-                });
-                object.sprite.draw(this.ctx);
+                object.sprite.draw(this.ctx, cameraPerson);
             })
 
             //Draw Upper Layers
-            this.map.drawUpperImage(this.ctx);
+            this.map.drawUpperImage(this.ctx, cameraPerson);
 
             requestAnimationFrame(() => { // step calls itself when a new frame starts
                 step();
