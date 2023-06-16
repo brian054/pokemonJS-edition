@@ -25,7 +25,6 @@ class DirectionInput {
             const dir = this.map[e.code];
             if (dir && this.heldDirections.indexOf(dir) === -1) {
                 this.heldDirections.unshift(dir); // insert at start 
-                console.log(this.heldDirections);
             }
         });
         // if the key lifted up was in array, take it out
@@ -34,7 +33,6 @@ class DirectionInput {
             const index = this.heldDirections.indexOf(dir);
             if (index > -1) { // in array
                 this.heldDirections.splice(index, 1); // remove 
-                console.log(this.heldDirections);
             }
         })
     }
